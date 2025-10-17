@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Wishper - Loading</title>
+<style>
+  :root {
+    --bg-light: #FFFFFF;
+    --text-light: #1B262C;
+    --bg-dark: #1A202C;
+    --text-dark: #E2E8F0;
+  }
+  body {
+    margin: 0; height: 100vh;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    transition: background-color 0.4s, color 0.4s;
+  }
+  h1 {
+    font-size: 3rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 1rem;
+  }
+  .loading-glass {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #20C997, #2DD4BF);
+    box-shadow: 0 0 30px #20C997;
+    animation: shine 3s infinite;
+  }
+  @keyframes shine {
+    0%, 100% {
+      box-shadow: 0 0 30px #20C997, inset 0 0 40px #2DD4BF;
+    }
+    50% {
+      box-shadow: 0 0 50px #2DD4BF, inset 0 0 60px #20C997;
+    }
+  }
+  .dark-mode {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+  }
+</style>
+</head>
+<body>
+  <div class="loading-glass" aria-label="Loading logo animation"></div>
+  <h1>Wishper</h1>
+
+  <script>
+    // Auto redirect after 3 seconds
+    setTimeout(() => {
+      window.location.href = 'login.html';
+    }, 3000);
+
+    // Optional: Detect user preferred mode and switch (demo only, can remove)
+    const darkModePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if(darkModePreferred) document.body.classList.add('dark-mode');
+  </script>
+</body>
+</html>
